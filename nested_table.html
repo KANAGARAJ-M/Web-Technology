@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Table Example</title>
+    <style>
+        .outer-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .outer-table th,
+        .outer-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+
+        .inner-table {
+            border-collapse: collapse;
+        }
+
+        .inner-table th,
+        .inner-table td {
+            border: 1px solid #ddd;
+            padding: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <table class="outer-table">
+        <thead>
+            <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Data 1</td>
+                <td>Data 2</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+
+                    <table class="inner-table">
+                        <thead>
+                            <tr>
+                                <th>Inner Header 1</th>
+                                <th>Inner Header 2</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Inner Data 1</td>
+                                <td>Inner Data 2</td>
+                            </tr>
+                            <tr>
+                                <td>Inner Data 3</td>
+                                <td>Inner Data 4</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </td>
+            </tr>
+            <tr>
+                <td>Data 3</td>
+                <td>Data 4</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

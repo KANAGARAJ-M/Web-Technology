@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Built-in JavaScript Objects</title>
+</head>
+<body>
+    <h1>Commonly Used Built-in Objects in JavaScript</h1>
+    
+    <script>
+        // Number Object
+        const num = 42;
+
+        // String Object
+        const str = "Hello, World!";
+
+        // Array Object
+        const arr = [1, 2, 3, 4, 5];
+
+        // Object Object (yes, Object is an object!)
+        const obj = { name: "John", age: 30 };
+
+        // Date Object
+        const currentDate = new Date();
+
+        // Math Object
+        const randomNum = Math.random();
+
+        // RegExp Object
+        const regex = /pattern/;
+
+        // Function Object
+        function sayHello() {
+            console.log("Hello!");
+        }
+
+        // Error Object
+        try {
+            throw new Error("This is an error");
+        } catch (error) {
+            console.error(error.message);
+        }
+
+        // JSON Object
+        const jsonStr = '{"name": "Alice", "age": 25}';
+        const parsedObj = JSON.parse(jsonStr);
+
+        // Global Object (window in the browser)
+        const screenWidth = window.innerWidth;
+
+        // Document Object (represents the HTML document)
+        const pageTitle = document.title;
+
+        console.log(num, str, arr, obj, currentDate, randomNum, regex, sayHello, parsedObj, screenWidth, pageTitle);
+    </script>
+</body>
+</html>

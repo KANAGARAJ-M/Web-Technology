@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Registration Form without css and js</title>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Registration Form</h1>
+        <form id="registrationForm" action="#">
+            <div class="form-control">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+            </div>
+            <div class="form-control">
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+            </div>
+            <div class="form-control">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-control">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" rows="4" required></textarea>
+            </div>
+            <div class="form-control">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+                <input type="radio" id="female" name="gender" value="female" required>
+                <label for="female">Female</label>
+            </div>
+            <div class="form-control">
+                <label>Hobbies:</label>
+                <input type="checkbox" id="hobby1" name="hobbies" value="reading">
+                <label for="hobby1">Reading</label>
+                <input type="checkbox" id="hobby2" name="hobbies" value="traveling">
+                <label for="hobby2">Traveling</label>
+                <input type="checkbox" id="hobby3" name="hobbies" value="cooking">
+                <label for="hobby3">Cooking</label>
+            </div>
+            <div class="form-control">
+                <label for="country">Country:</label>
+                <select id="country" name="country" required>
+                    <option value="usa">United States</option>
+                    <option value="canada">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <!-- Add more options as needed -->
+                </select>
+            </div>
+            <div class="form-control">
+                <label for="favoriteColor">Favorite Color:</label>
+                <input type="color" id="favoriteColor" name="favoriteColor">
+            </div>
+            <div class="form-control">
+                <label for="pushButton">Push Button:</label>
+                <button id="pushButton" type="button">Click Me</button>
+            </div>
+            <div class="form-control">
+                <label for="menu">Menu:</label>
+                <select id="menu">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    
+</body>
+</html>

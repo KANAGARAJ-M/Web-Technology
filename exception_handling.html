@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exception Handling in HTML</title>
+</head>
+<body>
+    <h1>Exception Handling in HTML</h1>
+    
+    <button id="myButton">Click Me</button>
+
+    <script>
+        document.getElementById('myButton').addEventListener('click', function () {
+            try {
+                
+                let x = y / 0; 
+            } catch (error) {
+                
+                alert('An exception occurred: ' + error.message);
+            }
+        });
+    </script>
+</body>
+</html>

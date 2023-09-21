@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Handling Example</title>
+    <style>
+      
+        #myButton {
+            padding: 10px;
+            background-color: lightblue;
+            cursor: pointer;
+        }
+
+        #myDiv {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Handling Example</h1>
+
+   
+    <button id="myButton" onclick="changeColor()">Click Me (Inline Event)</button>
+    <div id="myDiv" onmouseover="highlight(this)" onmouseout="unhighlight(this)">
+        Hover over me
+    </div>
+
+    <script>
+       
+        const button = document.getElementById('myButton');
+        const div = document.getElementById('myDiv');
+
+        
+        button.addEventListener('click', () => {
+            alert('Button clicked (Event Listener)');
+        });
+
+       
+        div.addEventListener('mouseover', () => {
+            div.textContent = 'Mouse over (Event Listener)';
+        });
+
+        div.addEventListener('mouseout', () => {
+            div.textContent = 'Hover over me (Event Listener)';
+        });
+
+        function changeColor() {
+            button.style.backgroundColor = 'lightgreen';
+        }
+
+        
+        function highlight(element) {
+            element.style.backgroundColor = 'yellow';
+        }
+
+        
+        function unhighlight(element) {
+            element.style.backgroundColor = 'lightgray';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Control</title>
+</head>
+<body>
+    <video id="myVideo" width="640" height="360" controls>
+        <source src="./assets/video/ShareMediaPromotion.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <button onclick="playPause()">Play/Pause</button>
+    <button onclick="muteUnmute()">Mute/Unmute</button>
+    <input type="range" id="volumeRange" min="0" max="1" step="0.1" value="1" oninput="setVolume(this.value)">
+    <button onclick="fullScreen()">Full Screen</button>
+
+    <br>
+    <p>A sharing media app is a platform that allows users to share photos, videos, and other types of media with
+        others. Such an app can be used to connect with friends, family, or other like-minded individuals who share
+        similar interests.
+
+        Features that might be included in a media sharing app could be the ability to create and edit media
+        content, add captions or filters, organize media into albums or folders, comment on or like other users'
+        content, and share content with other social media platforms.
+
+        Additionally, media sharing apps might offer privacy settings to control who can view your media, messaging
+        features to communicate with other users, and options to discover new and popular content on the app.
+
+        Overall, a media-sharing app can be a fun and convenient way to share moments, connect with others, and
+        express yourself creatively.
+        <br>
+
+        <h5>
+        Read our Privacy Policy - <a href="https://mkrcreations.godaddysites.com/privacy-policy">Privacy Policy</a>
+        </h5>
+        <br>
+        <h5>
+        Read our terms and conditions - <a href="//www.freeprivacypolicy.com/live/4ab1766b-8ede-4d7d-8359-aa9ac2da9043"> Terms and conditions</a></h5>
+        <br>
+        <h2><a href="https://play.google.com/store/apps/details?id=mskp.tamilanproject.sharemediapro.xyz">Download ShareMedia</a></h2>
+    </p>
+    
+    <script>
+        var video = document.getElementById("myVideo");
+
+        function playPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+
+        function muteUnmute() {
+            if (video.muted) {
+                video.muted = false;
+            } else {
+                video.muted = true;
+            }
+        }
+
+        function setVolume(volume) {
+            video.volume = volume;
+        }
+
+        function fullScreen() {
+            if (video.requestFullscreen) {
+                video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) { // Firefox
+                video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                video.webkitRequestFullscreen();
+            } else if (video.msRequestFullscreen) { // IE/Edge
+                video.msRequestFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
