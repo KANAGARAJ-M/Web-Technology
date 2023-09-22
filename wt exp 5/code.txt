@@ -1,0 +1,142 @@
+CODE
+index.html
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Servlet Login Example</title>
+</head>
+<body>
+<h1>Welcome to Login App by Cookie</h1>
+<a href="login.html">Login</a>|
+<a href="LogoutServlet">Logout</a>|
+<a href="ProfileServlet">Profile</a>
+</body>
+</html>
+link.html
+<a href="login.html">Login</a> |
+<a href="LogoutServlet">Logout</a> |
+<a href="ProfileServlet">Profile</a>
+<hr>
+login.html
+<form action="LoginServlet" method="post">Name:<input
+type="text" name="name"><br> Password:<input
+type="password"name="password"><br>
+<input type="submit" value="login">
+</form>LoginServlet.j
+ava package
+com.javatpoint;
+importjava.io.IOException;
+import java.io.PrintWriter;
+importjavax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+importjavax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class LoginServlet extends HttpServlet {
+protected void doPost(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+response.setContentType("text/html");
+PrintWriter out=response.getWriter();
+request.getRequestDispatcher("link.html").include(request, response);
+String name=request.getParameter("name");
+String password=request.getParameter("password");
+if(password.equals("admin123")){
+out.print("You are successfully logged in!");
+out.print("<br>Welcome, "+name);
+Cookie ck=new Cookie("name",name);
+response.addCookie(ck);
+}else{
+out.print("sorry, username or password error!");
+request.getRequestDispatcher("login.html").include(request, response);
+}
+out.close();
+}
+}
+LogoutServlet.java
+package com.javatpoint;
+import java.io.IOException;
+import java.io.PrintWriter;
+importjavax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+importjavax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class LogoutServlet extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+response.setContentType("text/html");
+PrintWriter out=response.getWriter();
+request.getRequestDispatcher("link.html").include(request, response);
+Cookie ck=new Cookie("name","");
+ck.setMaxAge(0);
+response.addCookie(ck);
+out.print("you are successfully logged out!");
+}
+}
+File: ProfileServlet.java
+packagecom.javatpoint;
+importjava.io.IOException;
+import java.io.PrintWriter;
+importjavax.servlet.ServletException;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServlet;
+importjavax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+public class ProfileServlet extends HttpServlet {
+protected void doGet(HttpServletRequest request, HttpServletResponse response)
+throws ServletException, IOException {
+response.setContentType("text/html");
+PrintWriter out=response.getWriter();
+request.getRequestDispatcher("link.html").include(request, response);
+Cookie ck[]=request.getCookies();
+if(ck!=null){
+String name=ck[0].getValue();
+if(!name.equals("")||name!=null){
+out.print("<b>Welcome to Profile</b>");
+out.print("<br>Welcome, "+name);
+}
+}else{
+out.print("Please login first");
+request.getRequestDispatcher("login.html").include(request, response);
+}
+out.close();
+}
+}
+web.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml
+/ns/javaee
+http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<servlet>
+<description></description>
+<display-name>LoginServlet</display-name>
+<servlet-name>LoginServlet</servlet-name>
+<servlet-class>com.javatpoint.LoginServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>LoginServlet</servlet-name>
+<url-pattern>/LoginServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+<description></description>
+<display-name>ProfileServlet</display-name>
+<servlet-name>ProfileServlet</servlet-name>
+<servlet-class>com.javatpoint.ProfileServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>ProfileServlet</servlet-name>
+<url-pattern>/ProfileServlet</url-pattern>
+</servlet-mapping>
+<servlet>
+<description></description>
+<display-name>LogoutServlet</display-name>
+<servlet-name>LogoutServlet</servlet-name>
+<servlet-class>com.javatpoint.LogoutServlet</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>LogoutServlet</servlet-name>
+<url-pattern>/LogoutServlet</url-pattern>
+</servlet-mapping>
+</web-app>
