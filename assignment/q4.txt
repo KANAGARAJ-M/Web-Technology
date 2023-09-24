@@ -1,0 +1,64 @@
+You can achieve this by using JavaScript and the `split()` method to parse the input telephone number and then display the extracted parts in separate text fields. Here's a JavaScript code example to accomplish this task:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telephone Number Parser</title>
+</head>
+<body>
+    <label for="phoneNumber">Enter Phone Number (e.g., (555)5555555): </label>
+    <input type="text" id="phoneNumber" placeholder="(555)5555555">
+    <br><br>
+    <label for="areaCode">Area Code: </label>
+    <input type="text" id="areaCode" readonly>
+    <br><br>
+    <label for="phoneNumberDigits">Phone Number: </label>
+    <input type="text" id="phoneNumberDigits" readonly>
+    <br><br>
+    <button onclick="parsePhoneNumber()">Parse</button>
+
+    <script>
+        function parsePhoneNumber() {
+            // Get the input phone number as a string
+            const phoneNumberInput = document.getElementById('phoneNumber').value;
+
+            // Define the regular expression pattern to match the phone number format
+            const pattern = /^\((\d{3})\)(\d{7})$/;
+
+            // Use the match() method with the pattern to extract area code and phone number
+            const match = phoneNumberInput.match(pattern);
+
+            if (match) {
+                // Extracted area code and phone number
+                const areaCode = match[1];
+                const phoneNumberDigits = match[2];
+
+                // Display the extracted values in the respective text fields
+                document.getElementById('areaCode').value = areaCode;
+                document.getElementById('phoneNumberDigits').value = phoneNumberDigits;
+            } else {
+                // Display an error message if the input doesn't match the expected format
+                alert('Invalid phone number format. Please use (555)5555555 format.');
+            }
+        }
+    </script>
+</body>
+</html>
+```
+
+Here's how the code works:
+
+1. It creates an HTML form with input fields for the telephone number, area code, and phone number digits.
+
+2. The `parsePhoneNumber` function is called when the "Parse" button is clicked.
+
+3. Inside the function, it retrieves the input phone number from the `phoneNumber` input field.
+
+4. It defines a regular expression pattern (`pattern`) to match the expected phone number format: `^\((\d{3})\)(\d{7})$`. This pattern captures the area code and the seven-digit phone number.
+
+5. It uses the `match()` method with the pattern to attempt to extract the area code and phone number from the input string. If the input matches the pattern, it extracts the values and displays them in the respective text fields (`areaCode` and `phoneNumberDigits`).
+
+6. If the input does not match the expected format, it displays an error message using the `alert()` function.
+
+With this code, users can input telephone numbers in the format `(555)5555555`, and the script will split and display the area code and phone number in separate text fields when the "Parse" button is clicked.

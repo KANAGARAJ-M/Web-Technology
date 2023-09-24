@@ -1,0 +1,23 @@
+{
+    "person": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "age": 30,
+      "address": {
+        "street": "123 Main Street",
+        "city": "New York",
+        "zipCode": "10001"
+      },
+      "contacts": [
+        {
+          "type": "email",
+          "value": "john.doe@example.com"
+        },
+        {
+          "type": "phone",
+          "value": "+1 123-456-7890"
+        }
+      ]
+    }
+  }
+  

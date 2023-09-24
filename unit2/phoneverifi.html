@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telephone Number Formatter</title>
+</head>
+<body>
+    <label for="phoneNumber">Enter Phone Number: </label>
+    <input type="text" id="phoneNumber" placeholder="(555)5555555">
+    <br><br>
+    <label for="areaCode">Area Code: </label>
+    <input type="text" id="areaCode" readonly>
+    <br><br>
+    <label for="phoneNumberDigits">Phone Number: </label>
+    <input type="text" id="phoneNumberDigits" readonly>
+    <br><br>
+    <button onclick="parsePhoneNumber()">Parse</button>
+
+    <script>
+        function formatPhoneNumber() {
+            const phoneNumberInput = document.getElementById('phoneNumber');
+            let formattedPhoneNumber = phoneNumberInput.value.replace(/\D/g, ''); // Remove non-numeric characters
+            if (formattedPhoneNumber.length >= 10) {
+                formattedPhoneNumber = `(${formattedPhoneNumber.substr(0, 3)})${formattedPhoneNumber.substr(3, 7)}`;
+            }
+            phoneNumberInput.value = formattedPhoneNumber;
+        }
+
+        function parsePhoneNumber() {
+            const phoneNumberInput = document.getElementById('phoneNumber').value;
+
+            const pattern = /^\((\d{3})\)(\d{7})$/;
+            const match = phoneNumberInput.match(pattern);
+
+            if (match) {
+                const areaCode = match[1];
+                const phoneNumberDigits = match[2];
+                document.getElementById('areaCode').value = areaCode;
+                document.getElementById('phoneNumberDigits').value = phoneNumberDigits;
+            } else {
+                alert('Invalid phone number format. Please use (555)5555555 format.');
+            }
+        }
+
+        // Add an event listener to format the phone number as the user types
+        document.getElementById('phoneNumber').addEventListener('input', formatPhoneNumber);
+    </script>
+</body>
+</html>

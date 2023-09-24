@@ -1,0 +1,50 @@
+Regular expressions, often referred to as regex or regexp, are powerful tools for pattern matching and manipulation of strings in Java and many other programming languages. They allow you to search, extract, and manipulate text based on specific patterns or rules. In Java, regular expressions are supported through the `java.util.regex` package. Here's an explanation of regular expressions in Java with an example:
+
+**Example: Validating an Email Address Using Regular Expressions in Java**
+
+```java
+import java.util.regex.*;
+
+public class EmailValidator {
+    public static void main(String[] args) {
+        String email = "example@email.com";
+        String pattern = "^[A-Za-z0-9+_.-]+@(.+)$";
+
+        // Create a Pattern object
+        Pattern regexPattern = Pattern.compile(pattern);
+
+        // Create a Matcher object
+        Matcher matcher = regexPattern.matcher(email);
+
+        // Check if the email matches the pattern
+        if (matcher.matches()) {
+            System.out.println("Valid email address.");
+        } else {
+            System.out.println("Invalid email address.");
+        }
+    }
+}
+```
+
+**Explanation:**
+
+1. Import the `java.util.regex` package to access regular expression classes and methods.
+
+2. Define an email address as a string (`email`) that you want to validate.
+
+3. Create a regular expression pattern (`pattern`) that describes the rules for a valid email address. In this example:
+   - `^`: Matches the start of the string.
+   - `[A-Za-z0-9+_.-]+`: Matches one or more characters that can be letters (both uppercase and lowercase), digits, plus sign, underscore, period, or hyphen.
+   - `@`: Matches the literal "@" symbol.
+   - `(.+)`: Matches one or more characters for the domain part of the email address.
+   - `$`: Matches the end of the string.
+
+4. Create a `Pattern` object (`regexPattern`) by compiling the regular expression pattern.
+
+5. Create a `Matcher` object (`matcher`) by calling the `matcher()` method on the `Pattern` object and passing the email string as an argument.
+
+6. Use the `matches()` method of the `Matcher` object to check if the email string matches the defined pattern.
+
+7. Based on the result, print "Valid email address." if it matches the pattern, or "Invalid email address." if it does not.
+
+In this example, the regular expression is used to validate whether the provided email address follows a basic pattern of having characters before and after the "@" symbol. Regular expressions can be much more complex and versatile, allowing you to handle a wide range of pattern-matching tasks, from simple validations to complex text manipulation and extraction. They are a valuable tool for working with textual data in Java programs.
