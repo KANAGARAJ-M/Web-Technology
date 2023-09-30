@@ -1,0 +1,9 @@
+1.Briefly explain about Positioning elements with example.
+
+2.State and explain about Box Model in HTML document with example.
+
+3.State and explain about Regular expression in Java program with example.
+
+4.Write a Javascript that inputs a telephone number as a string in the form of (555)5555555.The script should use
+string method split to extract the area code as a token,the first 3 digits of the phone number as a token,the last 4 digits
+of the phone number as a token.Display the area code in one text field and seven digit phone number in another text field.
